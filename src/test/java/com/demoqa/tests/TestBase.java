@@ -10,11 +10,12 @@ import java.time.Duration;
 public class TestBase {
     WebDriver driver;
     @BeforeMethod
-    public void init(){
+    public void setUp() {
         driver = new ChromeDriver();
-        driver.get("https://demoqa.com");
+        driver .get("https://demoqa.com/");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
     }
     @AfterMethod(enabled = false)
     public void tearDown() {

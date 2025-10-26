@@ -15,7 +15,14 @@ public class LoginPage extends BasePage {
 
     public LoginPage enterUserData(String userName, String password) {
         type(userField,userName);
-        type(passwordField,password);
+        typeWithJS(passwordField,password,0,300);
         return this;
+    }
+    @FindBy(id = "login")
+    WebElement loginButton;
+
+    public ProfilePage clickOnLoginButton() {
+        click(loginButton);
+        return new ProfilePage(driver);
     }
 }
